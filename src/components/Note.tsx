@@ -147,6 +147,7 @@ export const Note = ({ note, isOverTrash, onDrag, onDrop, onResize, onTextEdit }
 
     const handleResizePointerDown = (e: PointerEvent<HTMLDivElement>) => {
         e.stopPropagation();
+        e.preventDefault(); // Prevent text selection during resize
         setIsResizing(true);
         noteRef.current?.setPointerCapture(e.pointerId);
         startPosRef.current = { x: e.clientX, y: e.clientY };
